@@ -2,7 +2,7 @@ defmodule PhoenixPractice.Work.Book do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias PhoenixPractice.Work.{Author, BookAuthor, Image}
+  alias PhoenixPractice.Work.{BookAuthor, Image}
 
   @timestamps_opts [type: :utc_datetime]
 
@@ -36,6 +36,5 @@ defmodule PhoenixPractice.Work.Book do
     ])
     |> cast_embed(:image, with: &Image.changeset/2)
     |> cast_assoc(:book_authors, &BookAuthor.changeset/2)
-    |> cast_assoc(:authors, &Author.changeset/2)
   end
 end

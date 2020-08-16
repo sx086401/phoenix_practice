@@ -44,7 +44,8 @@ defmodule PhoenixPractice.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:cowboy, "< 2.8.0", override: true},
-      {:ecto_enum, "~> 1.4"}
+      {:ecto_enum, "~> 1.4"},
+      {:croma, "~> 0.10.2"}
     ]
   end
 
