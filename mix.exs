@@ -43,7 +43,8 @@ defmodule PhoenixPractice.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:cowboy, "< 2.8.0", override: true}
+      {:cowboy, "< 2.8.0", override: true},
+      {:ecto_enum, "~> 1.4"}
     ]
   end
 
