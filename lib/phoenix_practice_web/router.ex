@@ -17,6 +17,7 @@ defmodule PhoenixPracticeWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    resources "/books", BookController, except: [:edit, :new]
   end
 
   # Other scopes may use custom stacks.
