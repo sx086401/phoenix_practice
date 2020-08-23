@@ -40,11 +40,27 @@ defmodule PhoenixPracticeWeb.BookController do
     end
   end
 
-  def update(conn, %{"book" => _book_params}) do
+  def update(conn, %{"id" => id} = params) do
+    request = params |> Map.delete(:id) |> convert_to_keyword_list()
+    case Work.update_books_by_query([id: id], [set: request]) do
+      {1, _} ->
+        json(conn, %{})
+      _ ->
+        json(conn, %{status: 500, description: "Some error had happened."})
+    end
     render(conn, "index.html")
   end
 
-  def delete(conn, %{"id" => _id}) do
-    render(conn, "index.html")
+  def delete(conn, %{"id" => id}) do
+    case Work.delete_books_by_query([id: id]) do
+      {1, _} ->
+        send_resp(conn, 204, "")
+      _ ->
+        json(conn, %{status: 500, description: "Some error had happened."})
+    end
+  end
+
+  defp convert_to_keyword_list(map) do
+    Enum.map(map, fn({key, value}) -> {String.to_existing_atom(key), value} end)
   end
 end

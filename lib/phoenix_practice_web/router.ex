@@ -22,8 +22,11 @@ defmodule PhoenixPracticeWeb.Router do
 
   # Other scopes may use custom stacks.
   scope "/api", PhoenixPracticeWeb do
-    # pipe_through :api
+    pipe_through :api
 
-    post "/books", BookController, :create
+    post   "/books",     BookController, :create
+    put    "/books/:id", BookController, :update
+    delete "/books/:id", BookController, :delete
+    post   "/authors",   BookController, :create_author
   end
 end

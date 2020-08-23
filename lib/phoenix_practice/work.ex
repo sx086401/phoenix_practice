@@ -33,7 +33,7 @@ defmodule PhoenixPractice.Work do
   def delete_books_by_query(filters, opts \\ []) do
     Book
     |> EctoQueryMaker.apply(filters, opts)
-    |> Repo.delete!()
+    |> Repo.delete_all()
   end
 
   def get_authors(filters, opts \\ []) do
