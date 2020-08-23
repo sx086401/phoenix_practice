@@ -2,11 +2,11 @@ defmodule PhoenixPractice.Work do
   import Ecto.Query
 
   alias PhoenixPractice.{EctoQueryMaker, Repo}
-  alias PhoenixPractice.Work.{Author, Book}
+  alias PhoenixPractice.Work.{Author, Book, BookQuery}
 
   def get_books(filters, opts \\ []) do
     Book
-    |> EctoQueryMaker.apply(filters, opts)
+    |> EctoQueryMaker.apply(BookQuery, filters, opts)
     |> Repo.all()
   end
 

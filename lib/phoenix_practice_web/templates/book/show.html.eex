@@ -1,0 +1,44 @@
+<body>
+  <table>
+    <tr>
+      <th>id</th>
+      <td><%= @book.id %></td>
+    </tr>
+    <tr>
+      <th>title</th>
+      <td><%= @book.title %></td>
+    </tr>
+    <tr>
+      <th>description</th>
+      <td><%= @book.description %></td>
+    </tr>
+    <tr>
+      <th>publish begin at</th>
+      <td><%= @book.publish_begin_at %></td>
+    </tr>
+    <tr>
+      <th>publish end at</th>
+      <td><%= @book.publish_end_at %></td>
+    </tr>
+    <tr>
+      <th>search text</th>
+      <td><%= @book.search_text %></td>
+    </tr>
+    <tr>
+      <th>volume</th>
+      <td><%= @book.volume %></td>
+    </tr>
+    <tr>
+      <th>authors</th>
+      <td><%= @book.authors %></td>
+    </tr>
+    <tr>
+      <th>inserted at</th>
+      <td><%= @book.inserted_at %></td>
+    </tr>
+    <tr>
+      <th>updated at</th>
+      <td><%= @book.updated_at %></td>
+    </tr>
+  </table>
+</body>

@@ -21,8 +21,13 @@ defmodule PhoenixPracticeWeb.BookController do
     render(conn, "index.html", books: books)
   end
 
-  def show(conn, %{"id" => _id}) do
-    render(conn, "index.html")
+  def show(conn, %{"id" => id}) do
+    book =
+      case Work.get_books([id: id], [:selected_authors]) do
+        [book] -> Map.put(book, :authors, Jason.encode!(book.authors))
+        _ -> %{}
+      end
+    render(conn, "show.html", book: book)
   end
 
   # Example request body: %{category: :comic, book_authors: [%{author_id: 1}, ...]}
