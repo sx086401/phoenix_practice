@@ -15,15 +15,10 @@ defmodule PhoenixPractice.Work.BookAuthor do
 
   def changeset(book_author, attrs) do
     book_author
-    |> cast(attrs, [
-      :author_id,
-      :book_id,
-    ])
-    |> validate_required([
-      :author_id,
-      :book_id,
-    ])
+    |> cast(attrs, [:author_id, :book_id])
+    |> validate_required([:author_id, :book_id])
     |> foreign_key_constraint(:author_id)
     |> foreign_key_constraint(:book_id)
+    |> unique_constraint([:author_id, :book_id], name: :author_id_book_id_uniq)
   end
 end

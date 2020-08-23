@@ -14,14 +14,16 @@ defmodule PhoenixPracticeWeb.Router do
   end
 
   scope "/", PhoenixPracticeWeb do
-    pipe_through :browser
+    # pipe_through :browser
 
     get "/", PageController, :index
-    resources "/books", BookController, except: [:edit, :new]
+    resources "/books", BookController, only: [:show, :index]
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", PhoenixPracticeWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", PhoenixPracticeWeb do
+    # pipe_through :api
+
+    post "/books", BookController, :create
+  end
 end

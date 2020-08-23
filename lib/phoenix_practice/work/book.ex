@@ -34,7 +34,8 @@ defmodule PhoenixPractice.Work.Book do
       :search_text,
       :volume,
     ])
+    |> validate_required([:category, :title])
     |> cast_embed(:image, with: &Image.changeset/2)
-    |> cast_assoc(:book_authors, &BookAuthor.changeset/2)
+    |> cast_assoc(:book_authors, with: &BookAuthor.changeset/2)
   end
 end
