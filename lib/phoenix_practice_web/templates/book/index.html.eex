@@ -1,35 +1,31 @@
-<section class="phx-hero">
-  <h1><%= gettext "Welcome to %{name}!", name: "Book Index" %></h1>
-  <p>A productive web framework that<br/>does not compromise speed or maintainability.</p>
-</section>
-
-<section class="row">
-  <article class="column">
-    <h2>Resources</h2>
-    <ul>
-      <li>
-        <a href="https://hexdocs.pm/phoenix/overview.html">Guides &amp; Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix/blob/v1.4/CHANGELOG.md">v1.4 Changelog</a>
-      </li>
-    </ul>
-  </article>
-  <article class="column">
-    <h2>Help</h2>
-    <ul>
-      <li>
-        <a href="https://elixirforum.com/c/phoenix-forum">Forum</a>
-      </li>
-      <li>
-        <a href="https://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on Freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">Twitter @elixirphoenix</a>
-      </li>
-    </ul>
-  </article>
-</section>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>BaseID</th>
+        <th>title</th>
+        <th>description</th>
+        <th>publish begin at</th>
+        <th>publish end at</th>
+        <th>search text</th>
+        <th>volume</th>
+        <th>authors</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= for book <- @books do %>
+      <tr>
+        <td><%= book.id %></td>
+        <td><%= book.title %></td>
+        <td><%= book.description %></td>
+        <td><%= book.publish_begin_at %></td>
+        <td><%= book.publish_end_at %></td>
+        <td><%= book.search_text %></td>
+        <td><%= book.volume %></td>
+        <td><%= book.authors %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</body>

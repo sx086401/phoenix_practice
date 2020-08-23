@@ -9,7 +9,7 @@ defmodule PhoenixPractice.Migrations.CreateBooks do
       add :publish_begin_at, :utc_datetime, null: false
       add :publish_end_at,   :utc_datetime, null: false
       add :search_text,      :string,       default: ""
-      add :volume,           :string,       null: false
+      add :volume,           :integer,      null: false
       add :image,            :map,          default: %{}
 
       timestamps()

@@ -14,7 +14,7 @@ defmodule PhoenixPracticeWeb.Router do
   end
 
   scope "/", PhoenixPracticeWeb do
-    # pipe_through :browser
+    pipe_through :browser
 
     get "/", PageController, :index
     resources "/books", BookController, only: [:show, :index]

@@ -20,7 +20,7 @@ defmodule PhoenixPractice.Work do
   def create_books(params \\ %{}) do
     %Book{}
     |> Book.changeset(params)
-    |> Repo.insert!()
+    |> Repo.insert()
   end
 
   # updates is a keyword list. (e.g. [set: [title: "new_title"]])
@@ -51,8 +51,8 @@ defmodule PhoenixPractice.Work do
 
   def create_authors(params \\ %{}) do
     %Author{}
-    |> Book.changeset(params)
-    |> Repo.insert!()
+    |> Author.changeset(params)
+    |> Repo.insert()
   end
 
   def update_authors_by_query(filters, updates, opts \\ []) do
