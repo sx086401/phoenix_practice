@@ -3,7 +3,6 @@
     <thead>
       <tr>
         <th>id</th>
-        <th>BaseID</th>
         <th>title</th>
         <th>description</th>
         <th>publish begin at</th>
