@@ -17,7 +17,7 @@ defmodule PhoenixPractice.Work.Book do
 
     embeds_one :image,          Image, on_replace: :delete
 
-    has_many :book_authors,     BookAuthor, on_replace: :delete
+    has_many :book_authors,     BookAuthor, on_delete: :delete_all
     has_many :authors, through: [:book_authors, :author]
 
     timestamps()
